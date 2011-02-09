@@ -1,0 +1,3 @@
+RoofMap is an interactive map for WhiteRoofProject that allows for users and administrators to add points to a map (based on roof type and various other meta data), and modify existing points.  The front end offers an interactive map that allows users to filter by roof type and view information about particular points.
+
+This is a refactor in progress.
