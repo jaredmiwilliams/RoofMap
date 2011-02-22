@@ -5,13 +5,16 @@ package com.wrp.roofmap.model;
 import java.util.ArrayList;
 import java.util.Date;
 
-import com.wrp.roofmap.util.annotations.ListType;
-import com.wrp.roofmap.util.annotations.PersistentObject;
-import com.wrp.roofmap.util.annotations.PrimaryKey;
+import com.wrp.roofmap.util.annotation.ListType;
+import com.wrp.roofmap.util.annotation.PersistentObject;
+import com.wrp.roofmap.util.annotation.PrimaryKey;
 
 public class MapEntry {
 	@PrimaryKey
 	private Integer id;
+	
+	private String contactName;
+	private String contactEmail;
 	
 	private Date modified;
 	
@@ -26,17 +29,21 @@ public class MapEntry {
 		
 	}
 	
-	public MapEntry(Date modified, Building building,
+	public MapEntry(String contactName, String contactEmail, Date modified, Building building,
 			ArrayList<Person> contacts) {
+		this.contactName = contactName;
+		this.contactEmail = contactEmail;
 		this.id = -1;
 		this.modified = modified;
 		this.building = building;
 		this.contacts = contacts;
 	}
 
-	public MapEntry(Integer id, Date modified, Building building,
+	public MapEntry(Integer id, String contactName, String contactEmail, Date modified, Building building,
 			ArrayList<Person> contacts) {
 		this.id = id;
+		this.contactName = contactName;
+		this.contactEmail = contactEmail;
 		this.modified = modified;
 		this.building = building;
 		this.contacts = contacts;
@@ -44,6 +51,14 @@ public class MapEntry {
 
 	public Integer getId() {
 		return id;
+	}
+	
+	public String getContactName() {
+		return contactName;
+	}
+	
+	public String getContactEmail() {
+		return contactEmail;
 	}
 
 	public Date getModified() {
@@ -60,6 +75,14 @@ public class MapEntry {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	
+	public void setContactName(String contactName) {
+		this.contactName = contactName;
+	}
+	
+	public void setContactEmail(String contactEmail) {
+		this.contactEmail = contactEmail;
 	}
 
 	public void setModified(Date modified) {

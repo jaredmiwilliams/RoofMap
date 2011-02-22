@@ -12,11 +12,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Properties;
 
-import com.wrp.roofmap.util.annotations.ForeignKey;
-import com.wrp.roofmap.util.annotations.Ignore;
-import com.wrp.roofmap.util.annotations.ListType;
-import com.wrp.roofmap.util.annotations.PersistentObject;
-import com.wrp.roofmap.util.annotations.PrimaryKey;
+import com.wrp.roofmap.util.annotation.ForeignKey;
+import com.wrp.roofmap.util.annotation.Ignore;
+import com.wrp.roofmap.util.annotation.ListType;
+import com.wrp.roofmap.util.annotation.PersistentObject;
+import com.wrp.roofmap.util.annotation.PrimaryKey;
 import com.wrp.roofmap.util.model.MappedFields;
 
 

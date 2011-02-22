@@ -1,6 +1,6 @@
 package com.wrp.roofmap.model;
 
-import com.wrp.roofmap.util.annotations.ForeignKey;
+import com.wrp.roofmap.util.annotation.ForeignKey;
 
 
 public class Person {

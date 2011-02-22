@@ -1,6 +1,6 @@
 package com.wrp.roofmap.model;
 
-import com.wrp.roofmap.util.annotations.ForeignKey;
+import com.wrp.roofmap.util.annotation.ForeignKey;
 
 public class Building {
 	private String buildingName;
@@ -14,6 +14,11 @@ public class Building {
     private String country;
     private String formattedAddress;
     
+    private Boolean knownOwner;
+    
+    private String datePainted;
+    private Boolean temperatureMonitor;
+    
     private String lat;
     private String lon;
     
@@ -26,7 +31,8 @@ public class Building {
     
     public Building(String buildingName, String buildingType, String roofType,
 			String addr, String city, String state, String zip, String country,
-			String formattedAddress, String lat, String lon) {
+			String formattedAddress, boolean knownOwner, String datePainted, boolean temperateMonitor,
+			String lat, String lon) {
 		this.buildingName = buildingName;
 		this.buildingType = buildingType;
 		this.roofType = roofType;
@@ -36,6 +42,9 @@ public class Building {
 		this.zip = zip;
 		this.country = country;
 		this.formattedAddress = formattedAddress;
+		this.knownOwner = knownOwner;
+		this.datePainted = datePainted;
+		this.temperatureMonitor = temperateMonitor;
 		this.lat = lat;
 		this.lon = lon;
 		this.mapEntryId = -1;
@@ -43,7 +52,8 @@ public class Building {
 
 	public Building(String buildingName, String buildingType, String roofType,
 			String addr, String city, String state, String zip, String country,
-			String formattedAddress, String lat, String lon, Integer mapEntryId) {
+			String formattedAddress, boolean knownOwner, String datePainted, boolean temperateMonitor,
+			String lat, String lon, Integer mapEntryId) {
 		this.buildingName = buildingName;
 		this.buildingType = buildingType;
 		this.roofType = roofType;
@@ -53,6 +63,9 @@ public class Building {
 		this.zip = zip;
 		this.country = country;
 		this.formattedAddress = formattedAddress;
+		this.knownOwner = knownOwner;
+		this.datePainted = datePainted;
+		this.temperatureMonitor = temperateMonitor;
 		this.lat = lat;
 		this.lon = lon;
 		this.mapEntryId = mapEntryId;
@@ -92,6 +105,18 @@ public class Building {
 
 	public String getFormattedAddress() {
 		return formattedAddress;
+	}
+	
+	public Boolean getKnownOwner() {
+		return knownOwner;
+	}
+	
+	public String getDatePainted() {
+		return datePainted;
+	}
+	
+	public Boolean getTemperatureMonitor() {
+		return temperatureMonitor;
 	}
 
 	public String getLat() {
@@ -140,6 +165,26 @@ public class Building {
 
 	public void setFormattedAddress(String formattedAddress) {
 		this.formattedAddress = formattedAddress;
+	}
+	
+	public void setKnownOwner(boolean knownOwner) {
+		this.knownOwner = knownOwner;
+	}
+	
+	public void setKnownOwner(String knownOwner) {
+		this.knownOwner = Boolean.parseBoolean(knownOwner);
+	}
+	
+	public void setDatePainted(String datePainted) {
+		this.datePainted = datePainted;
+	}
+	
+	public void setTemperatureMonitor(boolean temperatureMonitor) {
+		this.temperatureMonitor = temperatureMonitor;
+	}
+	
+	public void setTemperatureMonitor(String temperatureMonitor) {
+		this.temperatureMonitor = Boolean.parseBoolean(temperatureMonitor);
 	}
 
 	public void setLat(String lat) {

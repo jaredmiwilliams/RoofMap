@@ -1,0 +1,7 @@
+*.ddl
+*.properties
+*.class
+*.jar
+.classpath
+.project
+*.prefs
