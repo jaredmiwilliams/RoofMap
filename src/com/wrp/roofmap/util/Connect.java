@@ -29,8 +29,8 @@ public class Connect {
 	public static final String ADD = "add";
 	public static final String GET = "get";
 	public static final String SET = "set";
-	public static final String DATABASE = "jdbc:mysql://localhost/geoapi";
-	public static final String USER = "";
+	public static final String DATABASE = "jdbc:mysql://localhost/roofmap";
+	public static final String USER = "root";
 	public static final String PASS = "";
 	
 	Connection connection;

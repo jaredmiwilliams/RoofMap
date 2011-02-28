@@ -107,10 +107,40 @@
 		</li>
 	</ul>
 	
-	<input type="submit" value="Submit"></input>
+	<noscript>
+		<ul>
+			<li>
+				<label>name</label>
+				<input type="text" name="sponsor_name1"></input>
+			</li>
+			<li>
+				<label>email</label>
+				<input type="text" name="sponsor_email1"></input>
+			</li>
+			<li>
+				<label>phone</label>
+				<input type="text" name="sponsor_phone1"></input>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<label>name</label>
+				<input type="text" name="sponsor_name2"></input>
+			</li>
+			<li>
+				<label>email</label>
+				<input type="text" name="sponsor_email2"></input>
+			</li>
+			<li>
+				<label>phone</label>
+				<input type="text" name="sponsor_phone2"></input>
+			</li>
+		</ul>
+	</noscript>
 	
-	<div id="input_map"></div>
+	<input type="submit" value="Submit"></input>
 </form>
 
+<div id="input_map"></div>
 
 <jsp:include page="footer.jsp" />

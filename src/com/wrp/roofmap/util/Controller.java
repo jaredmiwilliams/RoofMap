@@ -3,11 +3,13 @@ package com.wrp.roofmap.util;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import com.wrp.roofmap.model.AdminSettings;
 import com.wrp.roofmap.model.MapEntry;
 import com.wrp.roofmap.model.User;
 
 public class Controller {
 	private static Connect connect = null;
+	private static Controller controller = null;
 	
 	public static Connect getConnect() {
 		if(connect == null) {
@@ -16,7 +18,41 @@ public class Controller {
 		return connect;
 	}
 	
-	//TODO settings
+	public static Controller getInstance() {
+		if(controller == null) {
+			controller = new Controller();
+		}
+		return controller;
+	}
+	
+	private Controller() {
+		
+	}
+	
+	public boolean addAdminSettings(AdminSettings settings) {
+		return getConnect().persist(settings);
+	}
+	
+	@SuppressWarnings("unchecked")
+	public AdminSettings getAdminSettings() {
+		ArrayList<AdminSettings> settings = new ArrayList<AdminSettings>();
+		try {
+			settings = (ArrayList<AdminSettings>)getConnect().getObjects(AdminSettings.class);
+			
+			if(settings != null && !settings.isEmpty()) {
+				return settings.get(0);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return AdminSettings.getDefaultAdminSettings();
+	}
+	
+	public boolean deleteAdminSettings(String id) {
+		return getConnect().deleteObjectById(AdminSettings.class, "id", id);
+	}
 	
 	@SuppressWarnings("unchecked")
 	public ArrayList<MapEntry> getMapEntries() {
