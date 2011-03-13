@@ -198,6 +198,4 @@ public class Building {
 	public void setMapEntryId(Integer mapEntryId) {
 		this.mapEntryId = mapEntryId;
 	}
-    
-    
 }

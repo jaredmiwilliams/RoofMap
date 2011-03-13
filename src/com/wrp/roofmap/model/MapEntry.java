@@ -3,7 +3,6 @@ package com.wrp.roofmap.model;
 
 
 import java.util.ArrayList;
-import java.util.Date;
 
 import com.wrp.roofmap.util.annotation.ListType;
 import com.wrp.roofmap.util.annotation.PersistentObject;
@@ -16,7 +15,7 @@ public class MapEntry {
 	private String contactName;
 	private String contactEmail;
 	
-	private Date modified;
+	private Long modified;
 	
 	@PersistentObject
 	private Building building;
@@ -29,7 +28,7 @@ public class MapEntry {
 		
 	}
 	
-	public MapEntry(String contactName, String contactEmail, Date modified, Building building,
+	public MapEntry(String contactName, String contactEmail, long modified, Building building,
 			ArrayList<Person> contacts) {
 		this.contactName = contactName;
 		this.contactEmail = contactEmail;
@@ -39,7 +38,7 @@ public class MapEntry {
 		this.contacts = contacts;
 	}
 
-	public MapEntry(Integer id, String contactName, String contactEmail, Date modified, Building building,
+	public MapEntry(Integer id, String contactName, String contactEmail, long modified, Building building,
 			ArrayList<Person> contacts) {
 		this.id = id;
 		this.contactName = contactName;
@@ -61,7 +60,7 @@ public class MapEntry {
 		return contactEmail;
 	}
 
-	public Date getModified() {
+	public Long getModified() {
 		return modified;
 	}
 
@@ -85,7 +84,7 @@ public class MapEntry {
 		this.contactEmail = contactEmail;
 	}
 
-	public void setModified(Date modified) {
+	public void setModified(long modified) {
 		this.modified = modified;
 	}
 

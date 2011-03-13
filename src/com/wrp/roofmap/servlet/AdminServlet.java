@@ -1,6 +1,9 @@
 package com.wrp.roofmap.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 import javax.servlet.ServletConfig;
@@ -10,10 +13,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.wrp.roofmap.geocode.GoogleConnect;
-import com.wrp.roofmap.geocode.YahooConnect;
 import com.wrp.roofmap.model.AdminSettings;
+import com.wrp.roofmap.model.Building;
+import com.wrp.roofmap.model.MapEntry;
+import com.wrp.roofmap.model.Person;
 import com.wrp.roofmap.model.Point;
 import com.wrp.roofmap.util.Controller;
+import com.wrp.roofmap.util.FormReader;
 
 /**
  * Servlet implementation class AdminServlet
@@ -151,7 +157,35 @@ public class AdminServlet extends HttpServlet {
 	}
 
 	private void doAdd(HttpServletRequest request, HttpServletResponse response) {
-		//
+		//contact_name, contact_email, building_name, known_ow
+		FormReader formReader = new FormReader(request);
+		
+		MapEntry mapEntry = (MapEntry) formReader.populateObject(MapEntry.class);
+		Building building = (Building) formReader.populateObject(Building.class);
+		Person person = (Person) formReader.populateObject(Person.class);
+		
+		//TODO create interface with form objects to verify content
+		
+		GoogleConnect gConnect = new GoogleConnect();
+		Point point = null;
+		
+		try {
+			point = gConnect.doParsing("18 appleton road");
+		}
+		catch (Exception e) {
+			//TODO error handling
+			e.printStackTrace();
+		}
+		
+		building.setFormattedAddress(point.address);
+		building.setLat(point.lat +"");
+		building.setLon(point.lon +"");
+		
+		mapEntry.setModified(new Date().getTime());
+		mapEntry.setContacts((ArrayList<Person>)Arrays.asList(person));
+		mapEntry.setBuilding(building);
+		
+		
 	}
 
 }
